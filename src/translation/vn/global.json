@@ -1,0 +1,144 @@
+{
+    "happy_new_year": "Chúc Mừng Năm Mới",
+    "route": {
+        "home": "Trang chủ",
+        "inlove": "Inlove",
+        "countdown": "Đếm ngược",
+        "events": "Sự kiện",
+        "christmas": "Giáng sinh",
+        "lunar": "Tết Nguyên Đán",
+        "settings": "Cài đặt",
+        "gallery": "Thư viện ảnh",
+        "snow": "Bông tuyết",
+        "click_to_celebrate": "Nhấn để bắt đầu"
+    },
+    "time": {
+        "days": "Ngày",
+        "weeks": "Tuần",
+        "months": "Tháng",
+        "year": "Năm",
+        "hours": "Giờ",
+        "minutes": "Phút",
+        "seconds": "Giây"
+    },
+    "notifi": "Thông báo",
+    "mode": "Chế độ tối",
+    "lang": "Ngôn ngữ",
+    "dark": {
+        "on": "Bật",
+        "off": "Tắt"
+    },
+    "toast": {
+        "dark": "Đã bật Chế độ tối",
+        "light": "Đã bật chế độ sáng",
+        "lang": "Ngôn ngữ đã được thay đổi thành Tiếng Việt",
+        "snow_on": "Đã bật hiệu ứng tuyết rơi",
+        "snow_off": "Đã tắt hiệu ứng tuyết rơi",
+        "back_on": "Đã bật nút Quay lại đầu trang",
+        "back_off": "Đã tắt nút Quay lại đầu trang",
+        "pos": "Đã cập nhật vị trí thông báo"
+    },
+    "positions": {
+        "top-left": "Trên Trái",
+        "top-right": "Trên Phải",
+        "bottom-right": "Dưới Phải",
+        "bottom-left": "Dưới Trái",
+        "top-center": "Trên Giữa",
+        "bottom-center": "Dưới Giữa"
+    },
+    "fireworks": {
+        "settings": "Cài đặt Pháo Hoa",
+        "shellType": {
+            "header": "Loại vỏ pháo hoa",
+            "body": "Loại pháo hoa sẽ được bắn. Chọn 'Ngẫu nhiên' để có một loại tốt đẹp!"
+        },
+        "shellSize": {
+            "header": "Kích thước vỏ pháo hoa",
+            "body": "Kích thước của pháo hoa. Được mô phỏng theo kích thước vỏ pháo hoa thực, vỏ lớn hơn có các vụ nổ lớn hơn với nhiều sao hơn và đôi khi có nhiều hiệu ứng phức tạp hơn. Tuy nhiên, vỏ lớn hơn cũng đòi hỏi sức mạnh xử lý nhiều hơn và có thể gây ra hiện tượng giật lag."
+        },
+        "quality": {
+            "header": "Chất lượng đồ họa",
+            "body": "Chất lượng đồ họa tổng thể. Nếu hoạt ảnh không chạy mượt mà, hãy thử giảm chất lượng. Chất lượng cao làm tăng đáng kể lượng tia lửa được hiển thị và có thể gây ra độ trễ."
+        },
+        "skyLighting": {
+            "header": "Ánh sáng bầu trời",
+            "body": "Chiếu sáng nền khi pháo hoa nổ. Nếu nền trông quá sáng trên màn hình của bạn, hãy thử đặt nó thành 'Mờ' hoặc 'Không'."
+        },
+        "scaleFactor": {
+            "header": "Tỉ lệ",
+            "body": "Cho phép mở rộng kích thước của tất cả pháo hoa, về cơ bản là đưa bạn đến gần hơn hoặc ra xa hơn. Đối với kích thước vỏ lớn hơn, có thể giảm tỷ lệ một chút, đặc biệt là trên điện thoại hoặc máy tính bảng."
+        },
+        "speed": {
+            "header": "Tốc độ",
+            "body": "Tốc độ di chuyển của pháo hoa. Việc điều chỉnh cài đặt này sẽ kiểm soát tốc độ pháo hoa di chuyển trên bầu trời. Tốc độ cao hơn sẽ khiến chúng đạt đến đỉnh điểm nhanh hơn, trong khi tốc độ thấp hơn sẽ khiến màn hình hiển thị chậm hơn và chậm hơn."
+        },
+        "autoLaunch": {
+            "header": "Tự động",
+            "body": "Tự động bắn chuỗi pháo hoa. Hãy ngồi lại và thưởng thức chương trình hoặc tắt để có toàn quyền kiểm soát."
+        },
+        "finaleMode": {
+            "header": "Chế độ cuối cùng",
+            "body": "Bắn ra những chùm pháo hoa dữ dội. Có thể gây ra độ trễ. Yêu cầu bật 'Tự động bắn'."
+        },
+        "hideControls": {
+            "header": "Ẩn điều khiển",
+            "body": "Ẩn các điều khiển mờ dọc theo đầu màn hình. Hữu ích cho ảnh chụp màn hình hoặc chỉ là trải nghiệm liền mạch hơn. Khi bị ẩn, bạn vẫn có thể nhấn vào góc trên bên phải để mở lại menu này."
+        },
+        "fullscreen": {
+            "header": "Toàn màn hình",
+            "body": "Chuyển đổi chế độ toàn màn hình."
+        },
+        "experimental": {
+            "header": "Thử nghiệm",
+            "body": "Hiệu ứng thử nghiệm giúp duy trì các vệt ánh sáng dài, tương tự như để màn trập máy ảnh mở."
+        }
+    },
+    "snowfall": {
+        "title": "Hiệu ứng Tuyết rơi",
+        "enable": "Bật hiệu ứng tuyết"
+    },
+    "back_to_top": {
+        "title": "Nút quay lại đầu trang",
+        "select_pages": "Chọn các trang hiển thị nút Quay lại đầu trang:"
+    },
+    "footer": {
+        "endless_story": "Câu chuyện bất tận của chúng mình",
+        "crafted_with_love": "Được tạo ra bằng tình yêu",
+        "forever_anniversary": "Kỷ niệm mãi mãi",
+        "premium_sanctuary": "Thánh địa kỹ thuật số cao cấp"
+    },
+    "gallery_page": {
+        "captured": "Những",
+        "moments": "Khoảnh khắc",
+        "description": "Bộ sưu tập những kỷ niệm đẹp và trải nghiệm được chia sẻ. Nhấp vào bất kỳ hình ảnh nào để phóng to.",
+        "view_full": "Xem ảnh đầy đủ",
+        "view_more": "Xem Thêm Kỷ Niệm",
+        "view_carousel": "Vòng xoay 3D",
+        "view_grid": "Lưới Masonry",
+        "view_lightbox": "Trình chiếu"
+    },
+    "gallery_settings": {
+        "title": "Cài đặt Thư viện ảnh",
+        "autoplay": "Tự động trình chiếu"
+    },
+    "post_view": {
+        "list": "Danh sách",
+        "grid": "Lưới",
+        "premium": "Bài viết cao cấp"
+    },
+    "public": "Công khai",
+    "friend": "Bạn bè",
+    "music": {
+        "title": "Danh sách nhạc",
+        "play_radio": "Phát Radio",
+        "playing": "Đang phát...",
+        "minimize": "Thu nhỏ",
+        "expand": "Mở rộng",
+        "playlist": "Danh sách",
+        "turn_off": "Tắt nhạc",
+        "playing_from": "Đang phát từ",
+        "tracks": "Bài hát",
+        "archive": "Kho lưu trữ",
+        "radio": "Radio"
+    }
+}

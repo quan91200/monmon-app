@@ -1,0 +1,144 @@
+{
+    "happy_new_year": "Happy New Year",
+    "route": {
+        "home": "Home",
+        "inlove": "Inlove",
+        "countdown": "Countdown",
+        "events": "Events",
+        "christmas": "Christmas",
+        "lunar": "Lunar New Year",
+        "settings": "Settings",
+        "gallery": "Gallery",
+        "snow": "Snowflakes",
+        "click_to_celebrate": "Tap to Celebrate"
+    },
+    "time": {
+        "days": "Days",
+        "weeks": "Weeks",
+        "months": "Months",
+        "year": "Year",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+    },
+    "notifi": "Notifications",
+    "mode": "Darkmode",
+    "lang": "Language",
+    "dark": {
+        "on": "On",
+        "off": "Off"
+    },
+    "toast": {
+        "dark": "Enable DarkMode",
+        "light": "Enable LightMode",
+        "lang": "Language has been changed to English",
+        "snow_on": "Snowfall effect enabled",
+        "snow_off": "Snowfall effect disabled",
+        "back_on": "Back to Top button enabled",
+        "back_off": "Back to Top button disabled",
+        "pos": "Notification position updated"
+    },
+    "positions": {
+        "top-left": "Top Left",
+        "top-right": "Top Right",
+        "bottom-left": "Bottom Right",
+        "bottom-right": "Bottom Left",
+        "top-center": "Top Center",
+        "bottom-center": "Bottom Center"
+    },
+    "fireworks": {
+        "settings": "Firework Settings",
+        "shellType": {
+            "header": "Firework Shell Type",
+            "body": "The type of firework to be launched. Choose 'Random' for a nice variety!"
+        },
+        "shellSize": {
+            "header": "Firework Shell Size",
+            "body": "The size of the firework shell. It mimics the actual size of firework shells; larger shells create bigger explosions with more stars and often more complex effects. However, larger shells also require more processing power and may cause lag."
+        },
+        "quality": {
+            "header": "Graphics Quality",
+            "body": "Overall graphics quality. If animations are not running smoothly, try lowering the quality. High quality significantly increases the number of sparks shown and can cause delay."
+        },
+        "skyLighting": {
+            "header": "Sky Lighting",
+            "body": "Background lighting when the fireworks explode. If the background looks too bright on your screen, try setting it to 'Dim' or 'None'."
+        },
+        "shellFactor": {
+            "header": "Scale",
+            "body": "Allows scaling of all fireworks, effectively zooming in or out. For larger shell sizes, you may want to reduce the scale slightly, especially on phones or tablets."
+        },
+        "speed": {
+            "header": "Speed",
+            "body": "The speed at which the fireworks move. Adjusting this setting will control how fast the fireworks travel through the sky. A higher speed will make them reach their peak faster, while a lower speed will make the display slower and more gradual."
+        },
+        "autoLaunch": {
+            "header": "Auto Launch",
+            "body": "Automatically launches a firework sequence. Sit back and enjoy the show or turn it off for full control."
+        },
+        "finaleMode": {
+            "header": "Finale Mode",
+            "body": "Launches intense bursts of fireworks. May cause delay. Requires 'Auto Launch' to be enabled."
+        },
+        "hideControls": {
+            "header": "Hide Controls",
+            "body": "Hides the dimmed controls along the top of the screen. Useful for screenshots or a smoother experience. When hidden, you can still tap the top right corner to reopen this menu."
+        },
+        "fullscreen": {
+            "header": "Fullscreen",
+            "body": "Switch to fullscreen mode."
+        },
+        "longExposure": {
+            "header": "Experiment",
+            "body": "An experimental effect that keeps long light trails, similar to leaving the camera shutter open."
+        }
+    },
+    "snowfall": {
+        "title": "Snowfall Effect",
+        "enable": "Enable Snowfall"
+    },
+    "back_to_top": {
+        "title": "Back to Top Button",
+        "select_pages": "Select pages to show Back to Top button:"
+    },
+    "footer": {
+        "endless_story": "Our Endless Story",
+        "crafted_with_love": "Crafted with Love",
+        "forever_anniversary": "Forever Anniversary",
+        "premium_sanctuary": "Premium Digital Sanctuary"
+    },
+    "gallery_page": {
+        "captured": "Captured",
+        "moments": "Moments",
+        "description": "A collection of beautiful memories and shared experiences. Click on any image to expand.",
+        "view_full": "View Full Image",
+        "view_more": "View More Memories",
+        "view_carousel": "Feature Carousel",
+        "view_grid": "Masonry Grid",
+        "view_lightbox": "Gallery Lightbox"
+    },
+    "gallery_settings": {
+        "title": "Gallery Settings",
+        "autoplay": "Auto-play Slideshow"
+    },
+    "post_view": {
+        "list": "List",
+        "grid": "Grid",
+        "premium": "Premium Post"
+    },
+    "public": "Public",
+    "friend": "Friends",
+    "music": {
+        "title": "Our Playlist",
+        "play_radio": "Play Radio",
+        "playing": "Playing...",
+        "minimize": "Minimize",
+        "expand": "Expand",
+        "playlist": "Playlist",
+        "turn_off": "Turn off",
+        "playing_from": "Playing from",
+        "tracks": "Tracks",
+        "archive": "Archive",
+        "radio": "Radio"
+    }
+}

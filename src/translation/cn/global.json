@@ -1,0 +1,144 @@
+{
+  "happy_new_year": "新年快乐",
+  "route": {
+    "home": "首页",
+    "inlove": "恋爱中",
+    "countdown": "倒计时",
+    "events": "纪念日",
+    "christmas": "圣诞节",
+    "lunar": "农历新年",
+    "settings": "设置",
+    "gallery": "相册",
+    "snow": "下雪效果",
+    "click_to_celebrate": "点击开始庆祝"
+  },
+  "time": {
+    "days": "天",
+    "weeks": "周",
+    "months": "月",
+    "year": "年",
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒"
+  },
+  "notifi": "通知",
+  "mode": "深色模式",
+  "lang": "语言",
+  "dark": {
+    "on": "开启",
+    "off": "关闭"
+  },
+  "toast": {
+    "dark": "深色模式已开启",
+    "light": "浅色模式已开启",
+    "lang": "语言已切换为中文",
+    "snow_on": "雪花效果已开启",
+    "snow_off": "雪花效果已关闭",
+    "back_on": "回到顶部按钮已开启",
+    "back_off": "回到顶部按钮已关闭",
+    "pos": "通知位置已更新"
+  },
+  "positions": {
+    "top-left": "左上",
+    "top-right": "右上",
+    "bottom-right": "右下",
+    "bottom-left": "左下",
+    "top-center": "中上",
+    "bottom-center": "中下"
+  },
+  "fireworks": {
+    "settings": "烟花设置",
+    "shellType": {
+      "header": "烟花类型",
+      "body": "选择要燃放的烟花种类。选择“随机”以获得最佳视觉效果！"
+    },
+    "shellSize": {
+      "header": "烟花尺寸",
+      "body": "烟花的爆炸范围。模拟真实烟花规格，较大的尺寸会有更壮观的爆炸效果和更多火花，但也更耗费处理性能，可能导致卡顿。"
+    },
+    "quality": {
+      "header": "画面质量",
+      "body": "整体图形质量。如果动画运行不流畅，请尝试调低质量。高质量会显著增加显示的火花数量，可能产生延迟。"
+    },
+    "skyLighting": {
+      "header": "天空亮度",
+      "body": "烟花爆炸时的背景照明效果。如果背景看起来太亮，请尝试将其设置为“暗”或“无”。"
+    },
+    "scaleFactor": {
+      "header": "缩放比例",
+      "body": "调整所有烟花的大小，让视角看起来更近或更远。对于大尺寸烟花，建议适当调低比例，特别是在手机或平板上。"
+    },
+    "speed": {
+      "header": "燃放速度",
+      "body": "控制烟花在空中移动的速度。调高速度会让烟花更快达到顶点，调低速度则会让表演节奏变慢。"
+    },
+    "autoLaunch": {
+      "header": "自动燃放",
+      "body": "自动循环燃放烟花。您可以坐下来静静欣赏，或关闭此项以进行手动控制。"
+    },
+    "finaleMode": {
+      "header": "谢幕模式",
+      "body": "瞬间喷射出密集的烟花群。可能会造成设备延迟。需开启“自动燃放”才能使用。"
+    },
+    "hideControls": {
+      "header": "隐藏控制栏",
+      "body": "隐藏屏幕顶部的半透明控制条。适用于截图或追求沉浸式体验。隐藏后，您仍可点击右上角重新打开菜单。"
+    },
+    "fullscreen": {
+      "header": "全屏模式",
+      "body": "切换全屏显示。"
+    },
+    "experimental": {
+      "header": "实验性功能",
+      "body": "尝试保持长拖尾光影效果，类似于相机的长曝光拍摄。"
+    }
+  },
+  "snowfall": {
+    "title": "下雪效果",
+    "enable": "启用下雪效果"
+  },
+  "back_to_top": {
+    "title": "回到顶部按钮",
+    "select_pages": "选择显示“回到顶部”按钮的页面："
+  },
+  "footer": {
+    "endless_story": "我们永恒的故事",
+    "crafted_with_love": "因爱而生",
+    "forever_anniversary": "永远的纪念",
+    "premium_sanctuary": "尊享数字殿堂"
+  },
+  "gallery_page": {
+    "captured": "珍藏的",
+    "moments": "美好瞬间",
+    "description": "记录美好回忆与共同经历的相册。点击图片即可放大查看。",
+    "view_full": "查看原图",
+    "view_more": "查看更多回忆",
+    "view_carousel": "3D旋转木马",
+    "view_grid": "瀑布流网格",
+    "view_lightbox": "幻灯片播放"
+  },
+  "gallery_settings": {
+    "title": "画廊设置",
+    "autoplay": "自动幻灯片播放"
+  },
+  "post_view": {
+    "list": "列表",
+    "grid": "网格",
+    "premium": "精品动态"
+  },
+  "public": "公开",
+  "friend": "朋友",
+  "music": {
+    "title": "我们的播放列表",
+    "play_radio": "播放电台",
+    "playing": "正在播放...",
+    "minimize": "收起",
+    "expand": "展开",
+    "playlist": "播放列表",
+    "turn_off": "关闭",
+    "playing_from": "正在播放",
+    "tracks": "首歌曲",
+    "archive": "存档",
+    "radio": "电台"
+  }
+}
