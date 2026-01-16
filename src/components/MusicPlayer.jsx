@@ -246,9 +246,9 @@ const MusicPlayer = () => {
 
       {/* Mobile Music Modal */}
       {isMobileModalOpen && (
-        <div className="ipad-v:hidden fixed inset-0 z-[200] bg-white dark:bg-gray-950 flex flex-col pt-12 animate-fade-in overflow-y-auto no-scrollbar overflow-x-hidden">
+        <div className="ipad-v:hidden fixed inset-0 z-[200] bg-white dark:bg-gray-950 flex flex-col animate-fade-in overflow-y-auto no-scrollbar overflow-x-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 mb-12">
+          <div className="flex items-center justify-between px-6 pt-1">
             <button onClick={() => setIsMobileModalOpen(false)} className="p-2 -ml-2 text-gray-400 group">
               <IoChevronDown size={30} className="group-active:translate-y-1 transition-transform" />
             </button>
@@ -274,7 +274,7 @@ const MusicPlayer = () => {
             </div>
 
             {/* Track Info */}
-            <div className="text-center mb-12 w-full">
+            <div className="text-center mb-10 w-full">
               <MarqueeText
                 text={currentTrack.title}
                 containerClassName="mb-1"
@@ -284,7 +284,7 @@ const MusicPlayer = () => {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-between w-full max-w-[280px] mb-12">
+            <div className="flex items-center justify-between w-full max-w-[280px] mb-5">
               <button
                 onClick={prevTrack}
                 className="p-4 text-gray-400 hover:text-pink-500 active:scale-90 transition-all"
@@ -308,7 +308,7 @@ const MusicPlayer = () => {
             </div>
 
             {/* Extra Actions */}
-            <div className="flex items-center gap-10 mt-auto pb-12">
+            <div className="flex items-center gap-10 py-5">
               <button
                 onClick={() => setIsMobilePlaylistOpen(true)}
                 className="flex flex-col items-center gap-2 text-gray-400 group"
@@ -316,7 +316,6 @@ const MusicPlayer = () => {
                 <div className="p-4 bg-gray-100 dark:bg-gray-900 rounded-3xl group-active:bg-pink-500/10 transition-colors">
                   <IoList size={24} />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest">{t('music.playlist')}</span>
               </button>
             </div>
           </div>
@@ -337,7 +336,7 @@ const MusicPlayer = () => {
                 </button>
               </div>
 
-              <div className="flex-grow overflow-y-auto p-4 custom-scrollbar">
+              <div className="flex-grow overflow-y-auto px-2 custom-scrollbar">
                 {playlist.map((track, index) => (
                   <button
                     key={track.id}

@@ -132,7 +132,7 @@ const Gallery = () => {
  */
 const GalleryLightbox = ({ isOpen, imageSrc, onClose }) => (
     <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-xl transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`}
         onClick={onClose}
     >
