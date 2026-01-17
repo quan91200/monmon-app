@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import './assets/css/animations.css'
 import './assets/css/index.css'
 import './assets/css/layouts.css'
 import './assets/css/components.css'

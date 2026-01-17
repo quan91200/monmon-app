@@ -62,7 +62,99 @@
   --color-gray-900: #111827;
   --color-gray-950: #030712;
 
+  /* Fonts */
   --font-inter: 'Inter', sans-serif;
+
+  /* Basic Colors */
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+  --color-black: #000000;
+  --color-black-rgb: 0, 0, 0;
+
+  /* Red */
+  --color-red-500: #ef4444;
+  --color-red-500-rgb: 239, 68, 68;
+
+  /* Gray RGB */
+  --color-gray-50-rgb: 249, 250, 251;
+  --color-gray-100-rgb: 243, 244, 246;
+  --color-gray-200-rgb: 229, 231, 235;
+  --color-gray-300-rgb: 209, 213, 219;
+  --color-gray-400-rgb: 156, 163, 175;
+  --color-gray-500-rgb: 107, 114, 128;
+  --color-gray-600-rgb: 75, 85, 99;
+  --color-gray-700-rgb: 55, 65, 81;
+  --color-gray-800-rgb: 31, 41, 55;
+  --color-gray-900-rgb: 17, 24, 39;
+  --color-gray-950-rgb: 3, 7, 18;
+
+  /* Pink RGB */
+  --color-pink-50-rgb: 253, 242, 248;
+  --color-pink-100-rgb: 252, 231, 243;
+  --color-pink-200-rgb: 251, 207, 232;
+  --color-pink-400-rgb: 244, 114, 182;
+  --color-pink-500-rgb: 236, 72, 153;
+  --color-pink-600-rgb: 219, 39, 119;
+  --color-pink-900-rgb: 131, 24, 67;
+
+  /* Rose RGB */
+  --color-rose-100-rgb: 255, 228, 230;
+  --color-rose-200-rgb: 254, 205, 211;
+  --color-rose-400-rgb: 251, 113, 133;
+  --color-rose-500-rgb: 244, 63, 94;
+  --color-rose-600-rgb: 225, 29, 72;
+
+  /* Blue RGB */
+  --color-blue-50: #eff6ff;
+  --color-blue-50-rgb: 239, 246, 255;
+  --color-blue-100-rgb: 219, 234, 254;
+  --color-blue-400-rgb: 96, 165, 250;
+  --color-blue-500-rgb: 59, 130, 246;
+  --color-blue-600-rgb: 37, 99, 235;
+  --color-blue-900-rgb: 30, 58, 138;
+
+  /* Indigo RGB */
+  --color-indigo-50-rgb: 238, 242, 255;
+  --color-indigo-100-rgb: 224, 231, 255;
+  --color-indigo-200-rgb: 199, 210, 254;
+  --color-indigo-400-rgb: 129, 140, 248;
+  --color-indigo-500-rgb: 99, 102, 241;
+  --color-indigo-600-rgb: 79, 70, 229;
+  --color-indigo-900-rgb: 49, 46, 129;
+
+  /* Amber RGB */
+  --color-amber-100-rgb: 254, 243, 199;
+  --color-amber-500-rgb: 245, 158, 11;
+  --color-amber-700-rgb: 180, 83, 9;
+  --color-amber-900-rgb: 120, 53, 15;
+
+  /* Green RGB */
+  --color-green-100-rgb: 220, 252, 231;
+  --color-green-400-rgb: 74, 222, 128;
+  --color-green-500-rgb: 34, 197, 94;
+  --color-green-600-rgb: 22, 163, 74;
+  --color-green-700-rgb: 21, 128, 61;
+  --color-green-900-rgb: 20, 83, 45;
+
+  /* Gradients */
+  --gradient-status-mon: linear-gradient(to bottom right, rgba(var(--color-pink-50-rgb), 0.8), rgba(var(--color-white-rgb), 0.4), var(--color-white));
+  --gradient-status-mon-dark: linear-gradient(to bottom right, rgba(var(--color-pink-900-rgb), 0.2), rgba(var(--color-gray-900-rgb), 0.4), var(--color-gray-900));
+  
+  --gradient-status-other: linear-gradient(to bottom right, rgba(var(--color-blue-50-rgb), 0.8), rgba(var(--color-white-rgb), 0.4), var(--color-white));
+  --gradient-status-other-dark: linear-gradient(to bottom right, rgba(var(--color-blue-900-rgb), 0.2), rgba(var(--color-gray-900-rgb), 0.4), var(--color-gray-900));
+
+  --gradient-logo-text: linear-gradient(to right, var(--color-pink-500), var(--color-violet-500));
+  
+  --gradient-glow-pink: linear-gradient(to top right, var(--color-pink-400), var(--color-rose-400));
+  --gradient-glow-blue: linear-gradient(to top right, var(--color-blue-400), var(--color-indigo-400));
+  
+  --gradient-overlay: linear-gradient(to top, rgba(var(--color-black-rgb), 0.2), rgba(var(--color-black-rgb), 0.4), transparent);
+  --gradient-grid-text: linear-gradient(to bottom right, var(--color-gray-50), var(--color-white));
+  --gradient-grid-text-dark: linear-gradient(to bottom right, var(--color-gray-800), var(--color-gray-900));
+
+  --gradient-text-rainbow: linear-gradient(90deg, #ff007a, #ff5f00, #f3ff00, #00ff95, #007aff);
+  --gradient-footer-name: linear-gradient(to right, var(--color-gray-800), var(--color-gray-500));
+  --gradient-footer-name-dark: linear-gradient(to right, var(--color-white), var(--color-gray-400));
 }
 
 /**
@@ -155,28 +247,7 @@ body {
 /**
  * Animations
  */
-@keyframes heartbeat {
-  0% { transform: scale(1); }
-  14% { transform: scale(1.1); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.1); }
-  70% { transform: scale(1); }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-@keyframes progress {
-  from { width: 100%; }
-  to { width: 0%; }
-}
 
 /* Snowfall visibility fix */
 .snowflakes {
@@ -187,66 +258,7 @@ body:not(.dark) .snowflake {
     opacity: 0.6 !important;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes rotateCarousel {
-  from { transform: perspective(1000px) rotateY(0deg); }
-  to { transform: perspective(1000px) rotateY(360deg); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fadeLeftToRight {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(100px); }
-}
-
-@keyframes fadeRightToLeft {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); border-color: rgba(236, 72, 153, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 10px rgba(236, 72, 153, 0.4); border-color: rgba(236, 72, 153, 1); }
-  100% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); border-color: rgba(236, 72, 153, 0.5); }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-@keyframes slide-in-right {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slide-in-left {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slide-in-top {
-  from { transform: translateY(-100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slide-in-bottom {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
 
 .unit-animate-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
 .unit-animate-float { animation: float 3s ease-in-out infinite; }
@@ -254,15 +266,7 @@ body:not(.dark) .snowflake {
 .unit-animate-spin-slow { animation: spin 8s linear infinite; }
 .unit-animate-glow-pulse { animation: glowPulse 2s infinite; }
 .unit-animate-slide-up { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-@keyframes slide-in-top-centered {
-  from { transform: translate(-50%, -100%); opacity: 0; }
-  to { transform: translate(-50%, 0); opacity: 1; }
-}
 
-@keyframes slide-in-bottom-centered {
-  from { transform: translate(-50%, 100%); opacity: 0; }
-  to { transform: translate(-50%, 0); opacity: 1; }
-}
 
 .unit-animate-slide-in-right { animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .unit-animate-slide-in-left { animation: slide-in-left 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -270,18 +274,6 @@ body:not(.dark) .snowflake {
 .unit-animate-slide-in-bottom { animation: slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .unit-animate-slide-in-top-center { animation: slide-in-top-centered 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .unit-animate-slide-in-bottom-center { animation: slide-in-bottom-centered 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-/**
- * Text Gradients
- */
-.unit-text-gradient {
-  background: linear-gradient(90deg, #ff007a, #ff5f00, #f3ff00, #00ff95, #007aff);
-  background-size: 300% 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradientAnimation 3s infinite linear;
-}
 
 /**
  * Scrollbars
@@ -302,10 +294,10 @@ body:not(.dark) .snowflake {
 
 @font-face {
   font-family: 'Zendots';
-  src: url('./assets/fonts/ZenDots-Regular.ttf');
+  src: url('/public/fonts/ZenDots-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Jersey';
-  src: url('./assets/fonts/Jersey10-Regular.ttf');
+  src: url('/public/fonts/Jersey10-Regular.ttf');
 }
