@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { GALLERY, BREAKPOINTS } from '../constants'
 import { useGalleryContext } from '../context/GalleryContext'
+import useUrlModal from './useUrlModal'
 
 /**
  * Custom hook to manage gallery logic: view modes, masonry distribution, and lightbox state.
@@ -11,11 +13,25 @@ import { useGalleryContext } from '../context/GalleryContext'
  */
 const useGallery = (posts) => {
   const { galleryViewMode, handleGalleryViewModeChange, galleryAutoplay } = useGalleryContext()
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  const [model, setModel] = useState(false)
+  // Use useUrlModal for the base open/close logic
+  // We use /gallery as the fallback back path
+  const { isOpen: model, close: closeImageRaw } = useUrlModal('/gallery/view', '/gallery')
+
   const [tempImgSrc, setTempImgSrc] = useState('')
   const [visibleCount, setVisibleCount] = useState(GALLERY.INITIAL_COUNT)
   const [numColumns, setNumColumns] = useState(GALLERY.COLUMNS.DESKTOP)
+
+  // Sync tempImgSrc with URL query param
+  useEffect(() => {
+    const imgSrc = searchParams.get('img')
+    if (model && imgSrc) {
+      setTempImgSrc(imgSrc)
+    }
+  }, [model, searchParams])
 
   /**
    * Opens the lightbox with the specified image.
@@ -23,12 +39,14 @@ const useGallery = (posts) => {
    */
   const openImage = (imgSrc) => {
     setTempImgSrc(imgSrc)
-    setModel(true)
+    // Navigate manually to include query param so the image is shareable
+    navigate(`/gallery/view?img=${encodeURIComponent(imgSrc)}`)
   }
 
   // Closes the lightbox
   const closeImage = () => {
-    setModel(false)
+    closeImageRaw()
+    setTempImgSrc('')
   }
 
   /**

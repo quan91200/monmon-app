@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { MONITOR_TYPES, SLIDESHOW_INTERVAL, IMAGE_FIT_MODES } from '../constants/music'
 import postData from '../api/users.json'
+import useUrlModal from './useUrlModal'
 
 /**
  * Custom hook to manage the local UI state and logic of the Music Player.
@@ -13,12 +14,14 @@ import postData from '../api/users.json'
  */
 export const useMusicPlayerState = ({ isMiniMode, playlist, currentTrack }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [isMonitorOpen, setIsMonitorOpen] = useState(false)
   const [monitorType, setMonitorType] = useState(MONITOR_TYPES.VIDEO)
   const [imageFit, setImageFit] = useState(IMAGE_FIT_MODES[0])
   const [slideshowIndex, setSlideshowIndex] = useState(0)
   const [isMobileModalOpen, setIsMobileModalOpen] = useState(false)
   const [isMobilePlaylistOpen, setIsMobilePlaylistOpen] = useState(false)
+
+  // Use the reusable hook for Monitor URL state
+  const { isOpen: isMonitorOpen, toggle: setIsMonitorOpen } = useUrlModal('/musics')
 
   // Slideshow logic
   useEffect(() => {
@@ -49,10 +52,13 @@ export const useMusicPlayerState = ({ isMiniMode, playlist, currentTrack }) => {
   // Close overlays when switching to mini mode
   useEffect(() => {
     if (isMiniMode) {
-      setIsMonitorOpen(false)
+      // Use the handler to close monitor correctly (navigate back)
+      if (isMonitorOpen) {
+        setIsMonitorOpen(false)
+      }
       setIsDropdownOpen(false)
     }
-  }, [isMiniMode])
+  }, [isMiniMode, isMonitorOpen, setIsMonitorOpen])
 
   // Sync image with track index
   const currentTrackIndex = playlist.findIndex(t => t.id === currentTrack?.id)

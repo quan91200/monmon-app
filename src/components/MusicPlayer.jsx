@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { useMusic } from '../context/MusicContext'
@@ -32,6 +32,7 @@ const MusicPlayer = () => {
     playTrack,
     stopPlayer,
     isPlayerVisible,
+    setIsPlayerVisible,
     isMiniMode,
     setIsMiniMode,
     playlist
@@ -54,6 +55,13 @@ const MusicPlayer = () => {
     setIsMobilePlaylistOpen,
     monitorImage,
   } = useMusicPlayerState({ isMiniMode, playlist, currentTrack })
+
+  // Ensure player is visible if URL/Monitor is open (fixes refresh issue)
+  useEffect(() => {
+    if (isMonitorOpen && !isPlayerVisible) {
+      setIsPlayerVisible(true)
+    }
+  }, [isMonitorOpen, isPlayerVisible, setIsPlayerVisible])
 
   // Drag & Drop Logic
   const {

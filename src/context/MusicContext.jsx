@@ -4,17 +4,34 @@ import postData from '../api/users.json'
 const MusicContext = createContext()
 
 export const MusicProvider = ({ children }) => {
+  const playlist = postData.metadata.playlist || []
+
+  // Initialize state from localStorage
+  const getSavedState = () => {
+    try {
+      const saved = localStorage.getItem('monmon_music_state')
+      return saved ? JSON.parse(saved) : null
+    } catch (e) {
+      return null
+    }
+  }
+
+  const savedState = getSavedState()
+
   const [isPlaying, setIsPlaying] = useState(false)
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(() => {
+    const savedIndex = savedState?.currentTrackIndex || 0
+    return savedIndex < playlist.length ? savedIndex : 0
+  })
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [volume, setVolume] = useState(0.5)
-  const [isPlayerVisible, setIsPlayerVisible] = useState(false)
+  const [volume, setVolume] = useState(savedState?.volume ?? 0.5)
+  const [isPlayerVisible, setIsPlayerVisible] = useState(savedState?.isPlayerVisible || false)
 
-  const [isMiniMode, setIsMiniMode] = useState(false)
+  const [isMiniMode, setIsMiniMode] = useState(savedState?.isMiniMode || false)
 
   const audioRef = useRef(new Audio())
-  const playlist = postData.metadata.playlist || []
+  /* const playlist = postData.metadata.playlist || [] */
   const currentTrack = playlist[currentTrackIndex]
 
   useEffect(() => {
@@ -58,6 +75,15 @@ export const MusicProvider = ({ children }) => {
       audioRef.current.pause()
     }
   }, [isPlaying])
+
+  useEffect(() => {
+    localStorage.setItem('monmon_music_state', JSON.stringify({
+      currentTrackIndex,
+      volume,
+      isPlayerVisible,
+      isMiniMode
+    }))
+  }, [currentTrackIndex, volume, isPlayerVisible, isMiniMode])
 
   useEffect(() => {
     audioRef.current.volume = volume
