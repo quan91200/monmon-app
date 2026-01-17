@@ -23,7 +23,7 @@ const useLanguage = () => {
 
         if (currentHash !== hashLang) {
             // Use replace to update hash without pushing new history entry for just hash sync
-            navigate(`${location.pathname}#${hashLang}`, { replace: true })
+            navigate(`${location.pathname}${location.search}#${hashLang}`, { replace: true })
         }
     }
 
