@@ -1,20 +1,49 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+
+import './assets/css/index.css'
+import './assets/css/layouts.css'
+import './assets/css/components.css'
+import './assets/css/pages.css'
+
 import App from './App'
-import { EN, VN, CN } from './translation'
+
+import {
+  EN,
+  VN,
+  CN,
+} from './translation'
 import i18next from "i18next"
-import { I18nextProvider } from 'react-i18next'
-import { ThemeProvider } from './context/ThemeContext'
-import { SettingsProvider } from './context/SettingsContext'
-import { ToastProvider } from './context/ToastContext'
-import { PostProvider } from './context/PostContext'
-import { StatusCardPostProvider } from './context/StatusCardPostContext'
-import { GalleryProvider } from './context/GalleryContext'
-import { MusicProvider } from './context/MusicContext'
+import {
+  I18nextProvider
+} from 'react-i18next'
+
+import {
+  ThemeProvider
+} from './context/ThemeContext'
+import {
+  SettingsProvider
+} from './context/SettingsContext'
+import {
+  ToastProvider
+} from './context/ToastContext'
+import {
+  PostProvider
+} from './context/PostContext'
+import {
+  StatusCardPostProvider
+} from './context/StatusCardPostContext'
+import {
+  GalleryProvider
+} from './context/GalleryContext'
+import {
+  MusicProvider
+} from './context/MusicContext'
 
 i18next.init({
-  interpolation: { escapeValue: false },
+  interpolation: {
+    escapeValue: false
+  },
   lng: "vn",
   resources: {
     en: {

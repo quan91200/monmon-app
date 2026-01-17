@@ -31,7 +31,7 @@ export const ToastProvider = ({ children }) => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.TOAST_PERSISTENCE)
       return saved ? JSON.parse(saved) : []
-    } catch (e) {
+    } catch {
       return []
     }
   })

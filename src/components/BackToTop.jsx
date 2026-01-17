@@ -46,12 +46,7 @@ const BackToTop = () => {
       <button
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-28 right-5 ipad-v:hidden z-[60] p-4 rounded-full 
-                  bg-pink-500 dark:bg-pink-600
-                  text-white shadow-xl transition-all duration-500 hover:scale-110 active:scale-90 
-                  hover:shadow-pink-500/40 dark:hover:shadow-pink-900/40 backdrop-blur-md
-                  focus:outline-none ${isVisible ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-20 opacity-0 pointer-events-none'
-          }`}
+        className={`unit-back-to-top-mobile ${isVisible ? 'unit-visible' : 'unit-hidden'}`}
       >
         <FaChevronUp size={20} />
       </button>
@@ -60,8 +55,7 @@ const BackToTop = () => {
       <button
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`back-to-top-premium ${isVisible ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-20 opacity-0 pointer-events-none'
-          }`}
+        className={`unit-back-to-top-premium ${isVisible ? 'unit-visible' : 'unit-hidden'}`}
       >
         <svg className="svgIcon" viewBox="0 0 384 512">
           <path

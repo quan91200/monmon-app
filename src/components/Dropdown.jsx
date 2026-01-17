@@ -13,7 +13,7 @@ const Dropdown = ({ children }) => {
 
     return (
         <DropdownContext.Provider value={{ open, setOpen, toggleOpen }}>
-            <div className="relative">{children}</div>
+            <div className="unit-dropdown-container">{children}</div>
         </DropdownContext.Provider>
     )
 }
@@ -22,17 +22,17 @@ const Trigger = ({ children, className = '' }) => {
     const { open, setOpen, toggleOpen } = useContext(DropdownContext)
 
     return (
-        <div className={`relative cursor-pointer group ${className}`}>
+        <div className={`unit-dropdown-trigger-wrapper ${className}`}>
             <div
                 onClick={toggleOpen}
-                className="transition-transform duration-200 active:scale-95"
+                className="unit-dropdown-trigger"
             >
                 {children}
             </div>
 
             {open && (
                 <div
-                    className="fixed inset-0 z-40"
+                    className="unit-dropdown-backdrop"
                     onClick={() => setOpen(false)}
                 ></div>
             )}
@@ -65,11 +65,11 @@ const Content = ({
 
     return open ? (
         <div
-            className={`absolute z-50 mt-2 rounded-xl shadow-2xl ${alignmentClasses} ${widthClasses} transition-all duration-200 ease-out`}
+            className={`unit-dropdown-menu ${alignmentClasses} ${widthClasses}`}
             onClick={() => setOpen(false)}
         >
             <div
-                className={`rounded-xl ring-1 ring-black/5 dark:ring-white/10 backdrop-blur-md overflow-hidden ${contentClasses}`}
+                className={`unit-dropdown-content ${contentClasses}`}
             >
                 {children}
             </div>
@@ -81,7 +81,7 @@ const DropdownLink = ({ className = '', children, ...props }) => {
     return (
         <Link
             {...props}
-            className={`block w-full px-4 py-3 text-start text-sm font-medium leading-5 text-gray-700 dark:text-gray-200 transition duration-150 ease-in-out hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-600 ${className}`}
+            className={`unit-dropdown-link ${className}`}
         >
             {children}
         </Link>

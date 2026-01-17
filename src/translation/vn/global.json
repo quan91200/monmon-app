@@ -36,7 +36,8 @@
         "snow_off": "Đã tắt hiệu ứng tuyết rơi",
         "back_on": "Đã bật nút Quay lại đầu trang",
         "back_off": "Đã tắt nút Quay lại đầu trang",
-        "pos": "Đã cập nhật vị trí thông báo"
+        "pos": "Đã cập nhật vị trí thông báo",
+        "security_warning": "Vui lòng không sử dụng phím chuột phải"
     },
     "positions": {
         "top-left": "Trên Trái",
@@ -139,6 +140,11 @@
         "playing_from": "Đang phát từ",
         "tracks": "Bài hát",
         "archive": "Kho lưu trữ",
-        "radio": "Radio"
+        "radio": "Radio",
+        "monitor": "Màn hình theo dõi",
+        "image": "Hình ảnh",
+        "video": "Vòng xoay",
+        "text": "Lời nhạc",
+        "drop_to_stop": "Kéo vào đây để tắt"
     }
 }

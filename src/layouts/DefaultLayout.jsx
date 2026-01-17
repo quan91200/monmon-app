@@ -2,11 +2,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PropTypes from 'prop-types'
 
+/**
+ * DefaultLayout - Standard application structure with Navbar and Footer
+ */
 const DefaultLayout = ({ children }) => {
     return (
-        <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-950 transition-colors duration-500">
+        <div className="unit-layout-default">
             <Navbar />
-            <main className="flex-grow mt-20 sm:mt-24">
+            <main>
                 {children}
             </main>
             <Footer />

@@ -1,21 +1,27 @@
 import PropTypes from 'prop-types'
 
+/**
+ * Modal - A reusable dialog component.
+ * 
+ * @param {Object} props - Component props.
+ * @returns {JSX.Element|null} The rendered component.
+ */
 const Modal = ({
     isOpen,
     onClose,
     children,
     hideWrap = false,
-    position,
+    position = 'center',
     enableClose = true
 }) => {
     if (!isOpen) return null
 
     const positionClasses = {
-        center: 'items-center justify-center',
-        top: 'items-start justify-center',
-        bottom: 'items-end justify-center',
-        left: 'items-center justify-start',
-        right: 'items-center justify-end',
+        center: 'unit-modal-center',
+        top: 'unit-modal-top',
+        bottom: 'unit-modal-bottom',
+        left: 'unit-modal-left',
+        right: 'unit-modal-right',
     }
 
     const handleWrapClick = () => {
@@ -26,12 +32,12 @@ const Modal = ({
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex ${positionClasses[position] || 'items-center justify-center'
-                } ${hideWrap ? 'bg-transparent' : 'bg-black bg-opacity-50'}`}
+            className={`unit-modal-backdrop ${positionClasses[position] || 'unit-modal-center'} ${hideWrap ? 'unit-modal-backdrop-transparent' : 'unit-modal-backdrop-bg'
+                }`}
             onClick={handleWrapClick}
         >
             <div
-                className="laptop:max-w-full ipad-h:max-w-3xl mobile:max-w-sm max-h-[90vh] overflow-auto rounded-lg shadow-lg m-2 animate-fade-in"
+                className="unit-modal-content unit-animate-fade-in"
                 onClick={(e) => e.stopPropagation()}
             >
                 {children}
@@ -43,8 +49,7 @@ const Modal = ({
 export default Modal
 
 Modal.propTypes = {
-    isOpen: PropTypes.node,
-    open: PropTypes.bool,
+    isOpen: PropTypes.bool,
     onClose: PropTypes.func,
     children: PropTypes.node,
     hideWrap: PropTypes.bool,

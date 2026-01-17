@@ -2,7 +2,7 @@ import CountTime from '../components/CountTime'
 
 const CountDown = () => {
     return (
-        <div className='select-none'>
+        <div className='unit-countdown-page'>
             <CountTime />
         </div>
     )

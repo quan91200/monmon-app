@@ -1,26 +1,29 @@
 import { useEffect } from 'react'
-import MagicSnowflakes from 'magic-snowflakes'
+import Snowflakes from 'magic-snowflakes'
 import { useSettingsContext } from '../context/SettingsContext'
+import { useTheme } from '../context/ThemeContext'
 
 /**
  * SnowfallEffect Component - Manages the lifecycle of the magic-snowflakes effect.
- * Reacts to changes in the global SettingsContext.
+ * Reacts to changes in the global SettingsContext and ThemeContext.
  * 
  * @returns {null} This component does not render any UI.
  */
 const SnowfallEffect = () => {
     const { snowEffectEnabled } = useSettingsContext()
+    const { theme } = useTheme()
 
     useEffect(() => {
         let snowflakes = null
 
         if (snowEffectEnabled) {
-            snowflakes = new MagicSnowflakes({
-                count: 50,
-                color: '#ADD8E6',
+            snowflakes = new Snowflakes({
+                count: 100,
+                color: theme === 'dark' ? '#ffffff' : '#94a3b8', // slate-400 for light mode
                 speed: 1,
-                size: 10,
-                zIndex: 1000,
+                size: 15,
+                zIndex: 9999,
+                container: document.body
             })
             snowflakes.start()
         }
@@ -31,7 +34,7 @@ const SnowfallEffect = () => {
                 snowflakes = null
             }
         }
-    }, [snowEffectEnabled])
+    }, [snowEffectEnabled, theme])
 
     return null
 }

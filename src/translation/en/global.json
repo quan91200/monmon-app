@@ -36,7 +36,8 @@
         "snow_off": "Snowfall effect disabled",
         "back_on": "Back to Top button enabled",
         "back_off": "Back to Top button disabled",
-        "pos": "Notification position updated"
+        "pos": "Notification position updated",
+        "security_warning": "Right click is disabled"
     },
     "positions": {
         "top-left": "Top Left",
@@ -139,6 +140,11 @@
         "playing_from": "Playing from",
         "tracks": "Tracks",
         "archive": "Archive",
-        "radio": "Radio"
+        "radio": "Radio",
+        "monitor": "Monitor Window",
+        "image": "Image",
+        "video": "Slideshow",
+        "text": "Text",
+        "drop_to_stop": "Drop here to stop"
     }
 }

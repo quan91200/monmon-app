@@ -1,0 +1,39 @@
+/**
+ * Layouts CSS - Definition for different page structure systems
+ */
+
+/* Default Layout Styles */
+.unit-layout-default {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray-50);
+  transition: background-color 0.5s;
+}
+
+.dark .unit-layout-default {
+  background-color: var(--color-gray-950);
+}
+
+.unit-layout-default > main {
+  flex-grow: 1;
+  margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  .unit-layout-default > main {
+    margin-top: 6rem;
+  }
+}
+
+/* No Footer Layout Styles */
+.unit-layout-no-footer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.unit-layout-no-footer > main {
+  flex-grow: 1;
+  margin-top: 6rem;
+}

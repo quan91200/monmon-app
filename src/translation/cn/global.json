@@ -36,7 +36,8 @@
     "snow_off": "雪花效果已关闭",
     "back_on": "回到顶部按钮已开启",
     "back_off": "回到顶部按钮已关闭",
-    "pos": "通知位置已更新"
+    "pos": "通知位置已更新",
+    "security_warning": "禁止使用鼠标右键"
   },
   "positions": {
     "top-left": "左上",
@@ -139,6 +140,11 @@
     "playing_from": "正在播放",
     "tracks": "首歌曲",
     "archive": "存档",
-    "radio": "电台"
+    "radio": "电台",
+    "monitor": "监视窗口",
+    "image": "图片",
+    "video": "幻灯片",
+    "text": "文本",
+    "drop_to_stop": "拖到这里停止"
   }
 }

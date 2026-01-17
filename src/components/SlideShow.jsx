@@ -64,13 +64,13 @@ const SlideShow = ({
 
     return (
         <div
-            className="relative w-full mx-auto overflow-hidden touch-pan-y"
+            className="unit-slideshow"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
         >
             <div
-                className="flex transition-transform ease-in-out"
+                className="unit-slideshow-track"
                 style={{
                     transform: `translateX(-${currentIndex * 100}%)`,
                     transitionDuration:
@@ -80,8 +80,7 @@ const SlideShow = ({
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-full"
-                        style={{ width: "100%" }}
+                        className="unit-slideshow-slide"
                     >
                         {slide}
                     </div>
@@ -89,15 +88,12 @@ const SlideShow = ({
             </div>
 
             {showDots && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden ipad-v:flex space-x-2 mobile:bottom-0">
+                <div className="unit-slideshow-dots">
                     {slides.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
-                                ? "bg-rose-500 w-6"
-                                : "bg-gray-400/50 hover:bg-gray-400"
-                                }`}
+                            className={`unit-slideshow-dot ${index === currentIndex ? 'unit-dot-active' : ''}`}
                             aria-label={`Go to slide ${index + 1}`}
                         ></button>
                     ))}

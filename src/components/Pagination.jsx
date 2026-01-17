@@ -20,7 +20,7 @@ const Pagination = ({
     currentPage = 1,
     onPageChange,
 }) => {
-    const [maxPageDisplay, setMaxPageDisplay] = useState(PAGINATION.MAX_DISPLAY_DESKTOP);
+    const [maxPageDisplay, setMaxPageDisplay] = useState(PAGINATION.MAX_DISPLAY_DESKTOP)
 
     useEffect(() => {
         /**
@@ -28,72 +28,72 @@ const Pagination = ({
          */
         const handleResize = () => {
             if (window.innerWidth < BREAKPOINTS.MOBILE) {
-                setMaxPageDisplay(PAGINATION.MAX_DISPLAY_MOBILE);
+                setMaxPageDisplay(PAGINATION.MAX_DISPLAY_MOBILE)
             } else {
-                setMaxPageDisplay(PAGINATION.MAX_DISPLAY_DESKTOP);
+                setMaxPageDisplay(PAGINATION.MAX_DISPLAY_DESKTOP)
             }
-        };
+        }
 
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     /**
      * Calculates the array of page numbers to be displayed in the UI.
      * @returns {number[]} Array of page numbers.
      */
     const getPageNumbers = () => {
-        const halfMaxPageDisplay = Math.floor(maxPageDisplay / 2);
-        let startPage = Math.max(1, currentPage - halfMaxPageDisplay);
-        let endPage = Math.min(totalPages, currentPage + halfMaxPageDisplay);
+        const halfMaxPageDisplay = Math.floor(maxPageDisplay / 2)
+        let startPage = Math.max(1, currentPage - halfMaxPageDisplay)
+        let endPage = Math.min(totalPages, currentPage + halfMaxPageDisplay)
 
         // Adjust window if near the beginning
         if (currentPage - halfMaxPageDisplay <= 0) {
-            endPage = Math.min(totalPages, endPage + (halfMaxPageDisplay - currentPage + 1));
+            endPage = Math.min(totalPages, endPage + (halfMaxPageDisplay - currentPage + 1))
         }
 
         // Adjust window if near the end
         if (totalPages - currentPage < halfMaxPageDisplay) {
-            startPage = Math.max(1, startPage - (halfMaxPageDisplay - (totalPages - currentPage)));
+            startPage = Math.max(1, startPage - (halfMaxPageDisplay - (totalPages - currentPage)))
         }
 
-        const pages = [];
+        const pages = []
         for (let i = startPage; i <= endPage; i++) {
-            pages.push(i);
+            pages.push(i)
         }
-        return pages;
-    };
+        return pages
+    }
 
-    const pageNumbers = getPageNumbers();
+    const pageNumbers = getPageNumbers()
 
     return (
-        <div className="flex items-center justify-center gap-1 sm:gap-2 my-8">
+        <div className="unit-pagination">
             <Button
                 variant="info"
                 disabled={currentPage === 1}
                 onClick={() => onPageChange(currentPage - 1)}
-                className="!p-2 rounded-xl border-none shadow-sm dark:bg-gray-800 disabled:opacity-30"
+                className="unit-pagination-nav-btn"
             >
                 <MdOutlineSkipPrevious size={20} />
             </Button>
 
             {pageNumbers[0] > 1 && (
-                <div className="flex items-center gap-1">
-                    <ButtonNumber onClick={() => onPageChange(1)}>1</ButtonNumber>
-                    {pageNumbers[0] > 2 && <span className="text-gray-400 dark:text-gray-600 px-1 font-bold">...</span>}
+                <div className="unit-pagination-group">
+                    <ButtonNumber
+                        onClick={() => onPageChange(1)}
+                        className="unit-pagination-btn"
+                    >
+                        1
+                    </ButtonNumber>
+                    {pageNumbers[0] > 2 && <span className="unit-pagination-dots">...</span>}
                 </div>
             )}
 
             {pageNumbers.map((number) => (
                 <ButtonNumber
                     key={number}
-                    className={`
-                        transition-all duration-300 font-bold px-3 py-1.5 rounded-xl
-                        ${currentPage === number
-                            ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30 scale-110'
-                            : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-700 border border-transparent hover:border-blue-200'
-                        }`}
+                    className={`unit-pagination-btn ${currentPage === number ? 'unit-pagination-active' : ''}`}
                     onClick={() => onPageChange(number)}
                 >
                     {number}
@@ -101,11 +101,16 @@ const Pagination = ({
             ))}
 
             {pageNumbers[pageNumbers.length - 1] < totalPages && (
-                <div className="flex items-center gap-1">
+                <div className="unit-pagination-group">
                     {pageNumbers[pageNumbers.length - 1] < totalPages - 1 && (
-                        <span className="text-gray-400 dark:text-gray-600 px-1 font-bold">...</span>
+                        <span className="unit-pagination-dots">...</span>
                     )}
-                    <ButtonNumber onClick={() => onPageChange(totalPages)}>{totalPages}</ButtonNumber>
+                    <ButtonNumber
+                        onClick={() => onPageChange(totalPages)}
+                        className="unit-pagination-btn"
+                    >
+                        {totalPages}
+                    </ButtonNumber>
                 </div>
             )}
 
@@ -113,7 +118,7 @@ const Pagination = ({
                 variant="info"
                 disabled={currentPage === totalPages}
                 onClick={() => onPageChange(currentPage + 1)}
-                className="!p-2 rounded-xl border-none shadow-sm dark:bg-gray-800 disabled:opacity-30"
+                className="unit-pagination-nav-btn"
             >
                 <MdOutlineSkipNext size={20} />
             </Button>
@@ -127,7 +132,7 @@ const Pagination = ({
 const ButtonNumber = ({ children, onClick, className = '' }) => (
     <button
         onClick={onClick}
-        className={`px-3 py-1 rounded-xl font-bold transition-all duration-300 ${className}`}
+        className={className}
     >
         {children}
     </button>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { GALLERY, BREAKPOINTS, GALLERY_VIEW_MODES } from '../constants'
+import { GALLERY, BREAKPOINTS } from '../constants'
 import { useGalleryContext } from '../context/GalleryContext'
 
 /**

@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { TiTick } from "react-icons/ti"
 import { IoWarningOutline, IoInformationCircleOutline } from "react-icons/io5"
 import { MdErrorOutline } from "react-icons/md"
-import positionClasses from "../utils/spFunc"
 
 /**
  * Toast Component - A versatile notification system with auto-dismissal.
@@ -38,49 +37,44 @@ const Toast = ({
 
     if (!open) return null
 
-    const typeClasses = {
-        success: "bg-green-500 dark:bg-green-900/90 text-white",
-        primary: "bg-red-500 dark:bg-red-900/90 text-white",
-        info: "bg-blue-500 dark:bg-blue-900/90 text-white",
-        warning: "bg-yellow-500 dark:bg-yellow-900/90 text-white",
-        outlineSuccess: "border-green-500 dark:border-green-800 border-2 bg-transparent text-green-500 dark:text-green-400",
-        outlinePrimary: "border-red-500 dark:border-red-800 border-2 bg-transparent text-red-500 dark:text-red-400",
-        outlineInfo: "border-blue-500 dark:border-blue-800 border-2 bg-transparent text-blue-500 dark:text-blue-400",
-        outlineWarning: "border-yellow-500 dark:border-yellow-800 border-2 bg-transparent text-yellow-500 dark:text-yellow-400"
+    const typeIcons = {
+        success: <TiTick />,
+        primary: <MdErrorOutline />,
+        info: <IoInformationCircleOutline />,
+        warning: <IoWarningOutline />,
     }
 
-    const typeIcons = {
-        success: <TiTick className="text-xl" />,
-        primary: <MdErrorOutline className="text-xl" />,
-        info: <IoInformationCircleOutline className="text-xl" />,
-        warning: <IoWarningOutline className="text-xl" />,
-        outlineSuccess: <TiTick className="text-xl" />,
-        outlinePrimary: <MdErrorOutline className="text-xl" />,
-        outlineInfo: <IoInformationCircleOutline className="text-xl" />,
-        outlineWarning: <IoWarningOutline className="text-xl" />,
+    // Determine entry animation class based on position
+    const getAnimationClass = () => {
+        if (pos === 'top-center') return 'unit-animate-slide-in-top-center'
+        if (pos === 'bottom-center') return 'unit-animate-slide-in-bottom-center'
+        if (pos.includes('right')) return 'unit-animate-slide-in-right'
+        if (pos.includes('left')) return 'unit-animate-slide-in-left'
+        if (pos.includes('top')) return 'unit-animate-slide-in-top'
+        if (pos.includes('bottom')) return 'unit-animate-slide-in-bottom'
+        return 'unit-animate-fade-in'
     }
+
+    // Simplified type mapping (handling outlines as solid for now or adding variants if needed)
+    const baseType = type.replace('outline', '').toLowerCase()
 
     return (
         <div
-            className={`fixed ${positionClasses[pos]} p-4 rounded-xl shadow-2xl flex 
-                        items-center gap-3 cursor-pointer animate-fade-in 
-                        transition-all duration-300 z-[9999]
-                        backdrop-blur-md ${typeClasses[type]} hover:scale-105 active:scale-95 overflow-hidden`
-            }
+            className={`unit-toast unit-toast-${pos} unit-toast-${baseType} ${getAnimationClass()}`}
             onClick={onClose}
             role="alert"
         >
-            <div className="flex-shrink-0 opacity-90">
+            <div className="unit-toast-icon">
                 {typeIcons[type]}
             </div>
 
-            <span className="flex-1 font-inter font-medium text-sm tracking-wide">
+            <span className="unit-toast-message">
                 {message}
             </span>
 
             {duration > 0 && (
                 <div
-                    className="absolute bottom-0 left-0 h-1 bg-white/40 w-full"
+                    className="unit-toast-progress"
                     style={{
                         animation: `progress ${duration}ms linear forwards`
                     }}

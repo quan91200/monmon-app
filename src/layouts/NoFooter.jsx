@@ -2,11 +2,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PropTypes from 'prop-types'
 
+/**
+ * NoFooter Layout - Page structure for focused screens without desktop footer
+ */
 const NoFooter = ({ children }) => {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="unit-layout-no-footer">
             <Navbar />
-            <main className='flex-grow mt-24'>{children}</main>
+            <main>{children}</main>
             <Footer mobileOnly={true} />
         </div>
     )

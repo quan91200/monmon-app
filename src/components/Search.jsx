@@ -48,15 +48,11 @@ const Search = ({ onSearch, onClear }) => {
     }, [search])
 
     return (
-        <div className="relative flex items-center">
-            <div className={`
-                flex items-center transition-all duration-500 ease-in-out overflow-hidden
-                ${isExpanded ? 'w-48 sm:w-64 md:w-80 px-4 py-1 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200 dark:border-gray-700' : 'w-8 h-8 px-0 justify-center bg-transparent'}
-                rounded-2xl
-            `}>
+        <div className="unit-search-wrapper">
+            <div className={`unit-search-bar ${isExpanded ? 'unit-search-bar-expanded' : 'unit-search-bar-collapsed'}`}>
                 <button
                     onClick={toggleExpand}
-                    className={`flex-shrink-0 text-gray-500 hover:text-blue-500 rounded-full transition-colors duration-300 hover:scale-110 opacity-40 bg-gray-300 p-2 hover:opacity-100 grayscale hover:grayscale-0 ${isExpanded ? 'mr-3' : ''}`}
+                    className={`unit-search-trigger ${isExpanded ? 'unit-has-margin' : ''}`}
                 >
                     <HiOutlineSearch size={22} />
                 </button>
@@ -65,11 +61,7 @@ const Search = ({ onSearch, onClear }) => {
                     ref={inputRef}
                     type="text"
                     placeholder="Search moments..."
-                    className={`
-                        bg-transparent border-none focus:ring-0 text-gray-700 dark:text-gray-200 placeholder-gray-400
-                        transition-all duration-300 w-full text-sm font-medium
-                        ${isExpanded ? 'opacity-100' : 'opacity-0 w-0'}
-                    `}
+                    className={`unit-search-input ${isExpanded ? 'unit-search-input-visible' : 'unit-search-input-hidden'}`}
                     value={search}
                     onChange={handleSearchChange}
                 />
@@ -77,7 +69,7 @@ const Search = ({ onSearch, onClear }) => {
                 {search && isExpanded && (
                     <button
                         onClick={handleClear}
-                        className="flex-shrink-0 text-gray-400 hover:text-rose-500 transition-colors duration-300 ml-2"
+                        className="unit-search-clear"
                     >
                         <HiX size={18} />
                     </button>

@@ -3,59 +3,71 @@ import ReactDOM from 'react-dom'
 import { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Tooltip - A component that displays information when hovering over an element.
+ * 
+ * @param {Object} props - Component props.
+ * @returns {JSX.Element} The rendered component.
+ */
 const Tooltip = ({ content, children, position = 'top' }) => {
     const [show, setShow] = useState(false)
-    const tooltipRef = useRef(null)
+    const containerRef = useRef(null)
     const [positionStyle, setPositionStyle] = useState({ top: 0, left: 0 })
 
     useEffect(() => {
         const handleMouseOver = (e) => {
             const rect = e.target.getBoundingClientRect()
-
-            // Dựa vào position prop để quyết định cách tính vị trí
-            let positionStyles = { top: 0, left: 0 }
+            let styles = { top: 0, left: 0 }
 
             if (position === 'top') {
-                positionStyles.top = rect.top + window.scrollY - 40
-                positionStyles.left = rect.left + window.scrollX + rect.width / 2
+                styles.top = rect.top + window.scrollY - 10
+                styles.left = rect.left + window.scrollX + rect.width / 2
             } else if (position === 'bottom') {
-                positionStyles.top = rect.top + window.scrollY + rect.height + 5
-                positionStyles.left = rect.left + window.scrollX + rect.width / 2
+                styles.top = rect.top + window.scrollY + rect.height + 10
+                styles.left = rect.left + window.scrollX + rect.width / 2
             } else if (position === 'left') {
-                positionStyles.top = rect.top + window.scrollY + rect.height / 2
-                positionStyles.left = rect.left + window.scrollX - 100
+                styles.top = rect.top + window.scrollY + rect.height / 2
+                styles.left = rect.left + window.scrollX - 10
             } else if (position === 'right') {
-                positionStyles.top = rect.top + window.scrollY + rect.height / 2
-                positionStyles.left = rect.left + window.scrollX + rect.width + 5
+                styles.top = rect.top + window.scrollY + rect.height / 2
+                styles.left = rect.left + window.scrollX + rect.width + 10
             }
 
-            setPositionStyle(positionStyles)
+            setPositionStyle(styles)
             setShow(true)
         }
 
         const handleMouseOut = () => setShow(false)
 
-        if (tooltipRef.current) {
-            tooltipRef.current.addEventListener('mouseenter', handleMouseOver)
-            tooltipRef.current.addEventListener('mouseleave', handleMouseOut)
+        const target = containerRef.current
+        if (target) {
+            target.addEventListener('mouseenter', handleMouseOver)
+            target.addEventListener('mouseleave', handleMouseOut)
         }
 
         return () => {
-            if (tooltipRef.current) {
-                tooltipRef.current.removeEventListener('mouseenter', handleMouseOver)
-                tooltipRef.current.removeEventListener('mouseleave', handleMouseOut)
+            if (target) {
+                target.removeEventListener('mouseenter', handleMouseOver)
+                target.removeEventListener('mouseleave', handleMouseOut)
             }
         }
     }, [position])
 
     return (
         <>
-            <span ref={tooltipRef}>{children}</span>
+            <span ref={containerRef}>{children}</span>
             {show &&
                 ReactDOM.createPortal(
                     <div
-                        className="absolute z-50 bg-gray-700 text-white text-sm rounded p-2"
-                        style={{ top: positionStyle.top, left: positionStyle.left, transform: 'translateX(-50%)' }}
+                        className="unit-tooltip"
+                        style={{
+                            top: positionStyle.top,
+                            left: positionStyle.left,
+                            transform: position === 'top' ? 'translate(-50%, -100%)' :
+                                position === 'bottom' ? 'translate(-50%, 0)' :
+                                    position === 'left' ? 'translate(-100%, -50%)' :
+                                        'translate(0, -50%)'
+                        }}
                     >
                         {content}
                     </div>,
@@ -65,10 +77,10 @@ const Tooltip = ({ content, children, position = 'top' }) => {
     )
 }
 
-export default Tooltip
-
 Tooltip.propTypes = {
     content: PropTypes.node,
     children: PropTypes.node,
-    position: PropTypes.string
+    position: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
 }
+
+export default Tooltip

@@ -1,11 +1,20 @@
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from 'react-router-dom'
+
 import Layout from './layouts/Layout'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
 import routes from './routes/routes'
+
 import SnowfallEffect from './components/SnowfallEffect'
 import BackToTop from './components/BackToTop'
 import MusicPlayer from './components/MusicPlayer'
+import { useSecurityActions } from './hooks/useSecurityActions'
 
 const App = () => {
+  useSecurityActions()
   return (
     <Router future={{
       v7_relativeSplatPath: true, v7_startTransition: true,
@@ -14,12 +23,22 @@ const App = () => {
       <BackToTop />
       <MusicPlayer />
       <Routes>
-        {routes.map(({ path, element, layout }, index) => {
+        {routes.map(({
+          path,
+          element,
+          layout
+        }, index) => {
           return (
             <Route
               key={index}
               path={path}
-              element={layout ? <Layout element={element} layout={layout} /> : element}
+              element={
+                layout ? <Layout
+                  element={element}
+                  layout={layout}
+                />
+                  : element
+              }
             />
           )
         })}

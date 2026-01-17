@@ -1,29 +1,14 @@
 import PropTypes from "prop-types"
-import clsx from "clsx"
+import {
+    useMemo
+} from "react"
 
-const colorVariants = {
-    primary: {
-        outline: "border-red-500 text-red-500 bg-transparent hover:bg-red-500 hover:text-white hover:border-transparent dark:border-red-700 dark:text-red-700 dark:hover:bg-red-700 dark:hover:text-white",
-        filled: "bg-red-500 text-white border-red-500 hover:bg-transparent hover:text-red-500 hover:border-red-500 dark:bg-red-700 dark:border-red-700 dark:hover:text-red-700 dark:hover:border-red-700 dark:hover:bg-transparent"
-    },
-    secondary: {
-        outline: "border-gray-500 text-gray-500 bg-transparent hover:bg-gray-500 hover:text-white hover:border-transparent dark:border-gray-700 dark:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white",
-        filled: "bg-gray-500 text-white border-gray-500 hover:bg-transparent hover:text-gray-500 hover:border-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:hover:text-gray-700 dark:hover:border-gray-700 dark:hover:bg-transparent"
-    },
-    info: {
-        outline: "border-blue-500 text-blue-500 bg-transparent hover:bg-blue-500 hover:text-white hover:border-transparent dark:border-blue-700 dark:text-blue-700 dark:hover:bg-blue-700 dark:hover:text-white",
-        filled: "bg-blue-500 text-white border-blue-500 hover:bg-transparent hover:text-blue-500 hover:border-blue-500 dark:bg-blue-700 dark:border-blue-700 dark:hover:text-blue-700 dark:hover:border-blue-700 dark:hover:bg-transparent"
-    },
-    success: {
-        outline: "border-green-500 text-green-500 bg-transparent hover:bg-green-500 hover:text-white hover:border-transparent dark:border-green-700 dark:text-green-700 dark:hover:bg-green-700 dark:hover:text-white",
-        filled: "bg-green-500 text-white border-green-500 hover:bg-transparent hover:text-green-500 hover:border-green-500 dark:bg-green-700 dark:border-green-700 dark:hover:text-green-700 dark:hover:border-green-700 dark:hover:bg-transparent"
-    },
-    warning: {
-        outline: "border-yellow-500 text-yellow-500 bg-transparent hover:bg-yellow-500 hover:text-white hover:border-transparent dark:border-yellow-700 dark:text-yellow-700 dark:hover:bg-yellow-700 dark:hover:text-white",
-        filled: "bg-yellow-500 text-white border-yellow-500 hover:bg-transparent hover:text-yellow-500 hover:border-yellow-500 dark:bg-yellow-700 dark:border-yellow-700 dark:hover:text-yellow-700 dark:hover:border-yellow-700 dark:hover:bg-transparent"
-    }
-}
-
+/**
+ * Button - A reusable button component with various variants and sizes.
+ * 
+ * @param {Object} props - Component props.
+ * @returns {JSX.Element} The rendered component.
+ */
 const Button = ({
     children,
     variant = "secondary",
@@ -33,32 +18,43 @@ const Button = ({
     className = "",
     ...rest
 }) => {
-    const baseClasses = "transition duration-200 ease-in-out rounded font-medium focus:outline-none"
+    const computedClasses = useMemo(() => {
+        const classes = ["unit-button-base"]
 
-    const sizeClasses = {
-        small: "px-3 py-1 text-sm",
-        medium: "px-4 py-2 text-base",
-        large: "px-5 py-3 text-lg",
-        full: "w-full px-4 py-2 text-xl",
-        circle: "w-12 h-12 rounded-full flex items-center justify-center"
-    }
+        if (disabled) {
+            classes.push("unit-button-disabled")
+        } else {
+            // Map variants to our new CSS classes
+            const variantMap = {
+                primary: "unit-btn-primary",
+                outlinePrimary: "unit-btn-outline-primary",
+                secondary: "unit-btn-secondary",
+                outlineSecondary: "unit-btn-outline-secondary",
+                // fallback for others to standard secondary
+                info: "unit-btn-secondary",
+                success: "unit-btn-secondary",
+                warning: "unit-btn-secondary",
+            }
+            classes.push(variantMap[variant] || "unit-btn-secondary")
+        }
 
-    const disabledClasses = "bg-gray-300 text-gray-500 cursor-not-allowed"
+        const sizeMap = {
+            small: "unit-button-sm",
+            medium: "unit-button-md",
+            large: "unit-button-lg",
+            full: "unit-button-full",
+            circle: "unit-button-circle",
+        }
+        classes.push(sizeMap[size] || "unit-button-md")
 
-    const [color, type] = variant.includes("outline")
-        ? [variant.replace("outline", "").toLowerCase(), "outline"]
-        : [variant, "filled"]
+        if (className) classes.push(className)
 
-    const computedClasses = clsx(
-        baseClasses,
-        disabled ? disabledClasses : colorVariants[color]?.[type],
-        size === 'circle' ? sizeClasses['circle'] : sizeClasses[size],
-        className
-    )
+        return classes.join(" ")
+    }, [variant, size, disabled, className])
 
     return (
         <button
-            className={clsx(computedClasses, "border-2")}
+            className={computedClasses}
             onClick={onClick}
             disabled={disabled}
             {...rest}
