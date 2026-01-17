@@ -3419,8 +3419,8 @@
 }
 
 .unit-back-to-top-premium {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     background-color: rgb(20, 20, 20);
     border: none;
@@ -3434,7 +3434,7 @@
     overflow: hidden;
     position: fixed;
     bottom: 2.5rem;
-    right: 2.5rem;
+    right: 3rem;
     z-index: 60;
 }
 
