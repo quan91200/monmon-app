@@ -1,6 +1,18 @@
-import { useState, useRef, useEffect } from 'react'
+import {
+  useState,
+  useRef,
+  useEffect
+} from 'react'
+
 import PropTypes from 'prop-types'
-import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa"
+
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaGithub
+} from "react-icons/fa"
+
+import { COLORS } from '../constants/colors'
 
 /**
  * CoupleCard Component - Displays an individual's member card with a radial 
@@ -13,15 +25,36 @@ import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa"
  * @param {string} props.delay - Animation delay class.
  * @returns {JSX.Element} The rendered CoupleCard component.
  */
-const CoupleCard = ({ user, gradient, delay }) => {
+const CoupleCard = ({
+  user,
+  gradient,
+  delay
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const cardRef = useRef(null)
 
   // Filter available social profiles
   const socialIcons = [
-    { key: 'facebook', icon: <FaFacebook />, color: 'bg-[#1877F2]' },
-    { key: 'linkedin', icon: <FaLinkedin />, color: 'bg-[#0A66C2]' },
-    { key: 'github', icon: <FaGithub />, color: 'bg-[#24292E]' }
+    {
+      key: 'facebook',
+      icon: <FaFacebook />,
+      color: COLORS.SOCIAL.FACEBOOK,
+      // Retaining background class for Tailwind if needed in other contexts, 
+      // though inline styles below override/use specific colors.
+      bgClass: 'bg-[#1877F2]'
+    },
+    {
+      key: 'linkedin',
+      icon: <FaLinkedin />,
+      color: COLORS.SOCIAL.LINKEDIN,
+      bgClass: 'bg-[#0A66C2]'
+    },
+    {
+      key: 'github',
+      icon: <FaGithub />,
+      color: COLORS.SOCIAL.GITHUB,
+      bgClass: 'bg-[#24292E]'
+    }
   ].filter(item => user.profiles && user.profiles[item.key] && user.profiles[item.key] !== "")
 
   /**
@@ -54,10 +87,14 @@ const CoupleCard = ({ user, gradient, delay }) => {
         {/* Border Glow */}
         <div className={`unit-card-glow ${gradient}`} />
 
-        {/* Avatar Container */}
-        <div
+        {/* Avatar Container - Changed to button for a11y */}
+        <button
           onClick={toggleMenu}
           className="unit-card-avatar-container"
+          type="button"
+          aria-label={`Show social links for ${user.name}`}
+          aria-expanded={isMenuOpen}
+          style={{ cursor: 'pointer', border: 'none', background: 'none', padding: 0 }}
         >
           <img
             src={user.avatar}
@@ -67,7 +104,7 @@ const CoupleCard = ({ user, gradient, delay }) => {
 
           {/* Overlay when menu is open */}
           <div className={`unit-card-overlay ${isMenuOpen ? 'unit-overlay-visible' : ''}`} />
-        </div>
+        </button>
 
         {/* Radial Menu Items */}
         {socialIcons.map((item, index) => {
@@ -84,7 +121,7 @@ const CoupleCard = ({ user, gradient, delay }) => {
               rel="noopener noreferrer"
               className={`unit-social-item ${isMenuOpen ? 'unit-item-visible' : 'unit-item-hidden'}`}
               style={{
-                '--menu-color': item.key === 'facebook' ? '#1877F2' : item.key === 'linkedin' ? '#0A66C2' : '#24292E',
+                '--menu-color': item.color,
                 transform: isMenuOpen
                   ? `translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))`
                   : 'translate(-50%, -50%) scale(0)',
@@ -111,7 +148,12 @@ const CoupleCard = ({ user, gradient, delay }) => {
 }
 
 CoupleCard.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    nickname: PropTypes.string,
+    avatar: PropTypes.string,
+    profiles: PropTypes.object
+  }).isRequired,
   gradient: PropTypes.string.isRequired,
   delay: PropTypes.string.isRequired,
 }
